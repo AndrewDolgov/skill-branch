@@ -16,7 +16,9 @@ app.get('/task2a', (req, res) => {
 });
 
 const getInitials = (person) => {
+  person = person.replace(/\s+/g, ' ').trim();
 
+  //console.log(new Buffer(person));
   if (!person) {
     return 'Invalid fullname';
   }
@@ -32,7 +34,7 @@ const getInitials = (person) => {
 
   var initials = [parts.pop()];
   parts.forEach(function (item, i) {
-    parts[i] = item[0] + '.';
+    parts[i] = item[0].toUpperCase() + '.';
   });
 
   return initials.concat(parts).join(' ');
