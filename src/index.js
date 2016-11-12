@@ -27,12 +27,13 @@ const getInitials = (person) => {
     return 'Invalid fullname';
   }
 
-  var parts = person.split(' ');
+  const parts = person.split(' ');
   if (parts.length < 1 || parts.length > 3) {
     return 'Invalid fullname';
   }
 
-  var initials = [parts.pop()];
+  let initials = [parts.pop()];
+  initials = [initials[0][0].toUpperCase() + initials.toString().substr(1).toLowerCase()];
   parts.forEach(function (item, i) {
     parts[i] = item[0].toUpperCase() + '.';
   });
